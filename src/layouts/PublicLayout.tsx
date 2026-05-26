@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import AuthGuard from '../components/AuthGuard';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const Home = lazy(() => import('../pages/Home'));
 const NotFound = lazy(() => import('../pages/NotFound'));
@@ -46,6 +47,7 @@ const PublicLayout = (): ReactElement => {
         </Suspense>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </>
   );
 };

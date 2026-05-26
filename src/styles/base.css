@@ -361,6 +361,36 @@ h4 { line-height: 1.45; letter-spacing: -0.01em; }
   text-align: center;
 }
 .not-found-content { max-width: 480px; }
+
+/* Scroll-to-top floating button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-blue);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+  opacity: 0.88;
+}
+.scroll-to-top:hover {
+  background: var(--primary-blue-dark, #1a56db);
+  transform: translateY(-3px);
+  opacity: 1;
+}
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+}
 .not-found-code {
   font-size: 120px;
   font-weight: 900;

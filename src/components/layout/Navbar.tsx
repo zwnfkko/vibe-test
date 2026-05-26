@@ -15,7 +15,6 @@ const Navbar = (): ReactElement => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [showColorPicker, setShowColorPicker] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
@@ -23,7 +22,7 @@ const Navbar = (): ReactElement => {
   const searchRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const { mode, toggleTheme, colorTheme, setColorTheme } = useTheme();
+  const { mode, toggleTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
   const { isLoggedIn, isAdmin, profile, signOut } = useAuth();
 
@@ -96,7 +95,6 @@ const Navbar = (): ReactElement => {
           </div>
           <div className="topbar-right">
             <button onClick={toggleLanguage}>{language === 'ko' ? 'KR / EN' : 'EN / KR'}</button>
-            <span>{site.company.phone}</span>
           </div>
         </div>
       </div>
@@ -197,36 +195,6 @@ const Navbar = (): ReactElement => {
                   + 글쓰기
                 </Link>
               )}
-
-              {/* 컬러 테마 */}
-              <div className="color-picker-wrapper">
-                <button className="color-picker-btn" onClick={() => setShowColorPicker(!showColorPicker)} aria-label="Color theme">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="13.5" cy="6.5" r="2.5" style={{ fill: '#C8102E', stroke: 'none' }} />
-                    <circle cx="17.5" cy="10.5" r="2.5" style={{ fill: '#C87200', stroke: 'none' }} />
-                    <circle cx="8.5" cy="7.5" r="2.5" style={{ fill: '#00855A', stroke: 'none' }} />
-                    <circle cx="6.5" cy="12" r="2.5" style={{ fill: '#1B2A4A', stroke: 'none' }} />
-                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.24-.3-.39-.65-.39-1.04 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-5.17-4.5-9-10-9z" />
-                  </svg>
-                </button>
-                {showColorPicker && (
-                  <>
-                    <div className="color-picker-overlay" onClick={() => setShowColorPicker(false)} />
-                    <div className="color-picker-tooltip">
-                      <div className="color-picker-arrow" />
-                      {site.colors.map((c) => (
-                        <button
-                          key={c.name}
-                          className={`color-dot${colorTheme === c.name ? ' active' : ''}`}
-                          style={{ background: c.color }}
-                          onClick={() => { setColorTheme(c.name); setShowColorPicker(false); }}
-                          aria-label={`${c.name} theme`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
 
               {/* 다크 모드 */}
               <button className="theme-toggle" onClick={toggleTheme} aria-label="Theme toggle">

@@ -13,15 +13,8 @@ const Footer = (): ReactElement => {
           <div>
             <div className="footer-brand-mark">Vibe Coding Community</div>
             <p className="footer-tag">
-              바이브코딩 공부·실습을 함께 나누는 커뮤니티.
-              DreamIT Biz Group이 운영합니다.
+              바이브코딩 공부·실습을 함께 나누는 커뮤니티
             </p>
-            <div className="company-info">
-              <p><strong>{site.company.name}</strong></p>
-              <p>대표이사: {site.company.ceo}</p>
-              <p>사업자등록번호: {site.company.bizNumber}</p>
-              {site.company.salesNumber && <p>통신판매신고번호: {site.company.salesNumber}</p>}
-            </div>
           </div>
           <div>
             <h5>{t('footer.quickLinks')}</h5>
@@ -34,7 +27,7 @@ const Footer = (): ReactElement => {
             </ul>
           </div>
           <div>
-            <h5>패밀리</h5>
+            <h5>패밀리 사이트</h5>
             <ul>
               <li><a href={site.parentSite.url} target="_blank" rel="noopener noreferrer">{site.parentSite.name}</a></li>
               {site.familySites.map((s, i) => (
@@ -43,12 +36,7 @@ const Footer = (): ReactElement => {
             </ul>
           </div>
           <div>
-            <h5>문의</h5>
-            <ul>
-              <li>{site.company.email}</li>
-              <li>{site.company.phone}</li>
-              {site.company.businessHours && <li className="footer-muted">{site.company.businessHours}</li>}
-            </ul>
+            <h5>Family Site</h5>
             <div className="footer-family">
               <select
                 defaultValue=""
@@ -57,8 +45,8 @@ const Footer = (): ReactElement => {
                   e.target.value = '';
                 }}
               >
-                <option value="" disabled>Family Site</option>
-                <option value={site.parentSite.url}>{site.parentSite.name} (본사이트)</option>
+                <option value="" disabled>바로가기</option>
+                <option value={site.parentSite.url}>{site.parentSite.name}</option>
                 {site.familySites.map((s, i) => (
                   <option key={i} value={s.url}>{s.name}</option>
                 ))}
@@ -67,8 +55,7 @@ const Footer = (): ReactElement => {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>&copy; 2025 &mdash; {new Date().getFullYear()} DreamIT Biz &middot; All rights reserved</span>
-          <span className="footer-version">v.2026.04 &middot; Editorial</span>
+          <span>&copy; {new Date().getFullYear()} Vibe Coding Community &middot; All rights reserved</span>
         </div>
       </div>
     </footer>
