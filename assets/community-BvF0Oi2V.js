@@ -1,4 +1,4 @@
-import{g as c,T as o}from"./index-CSMPm8fN.js";let r=[{id:1,title:"[공지] 바이브코딩 커뮤니티에 오신 것을 환영합니다!",content:`바이브코딩 커뮤니티에 오신 것을 환영합니다.
+import{g as c,T as o}from"./index-D9nvAsHS.js";let r=[{id:1,title:"[공지] 바이브코딩 커뮤니티에 오신 것을 환영합니다!",content:`바이브코딩 커뮤니티에 오신 것을 환영합니다.
 
 이 곳은 바이브코딩 공부·실습 경험을 공유하고 질문을 나누는 공간입니다.
 
