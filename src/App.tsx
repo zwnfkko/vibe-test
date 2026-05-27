@@ -12,7 +12,7 @@ function App(): ReactElement {
       <LanguageProvider>
         <AuthProvider>
           <ToastProvider>
-            <Router>
+            <Router basename="/vibe-test">
               <div className="App">
                 <Routes>
                   <Route path="*" element={<PublicLayout />} />

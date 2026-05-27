@@ -195,22 +195,6 @@ const Home = (): ReactElement => {
           )}
         </div>
       </section>
-
-      {/* CTA */}
-      {!isLoggedIn && (
-        <section style={{ padding: '80px 0', background: 'var(--primary-gradient)', textAlign: 'center', color: '#fff' }}>
-          <div className="container">
-            <h2 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>지금 커뮤니티에 참여하세요</h2>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.85)', marginBottom: '32px' }}>
-              회원가입하고 바이브코딩 학습 경험을 공유해보세요
-            </p>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-              <Link to="/register" className="btn btn-primary-large">회원가입하기</Link>
-              <Link to="/login" className="btn btn-secondary" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.6)' }}>로그인</Link>
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 };

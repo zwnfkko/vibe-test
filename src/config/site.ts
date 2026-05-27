@@ -78,7 +78,6 @@ const site: SiteConfig = {
   ],
 
   familySites: [
-    { name: 'DreamIT Biz (본사이트)', url: 'https://www.dreamitbiz.com' },
     { name: 'KDN 바이브코딩 교육', url: 'https://kdn.dreamitbiz.com' },
     { name: 'AI 프롬프트 교육', url: 'https://ai-prompt.dreamitbiz.com' },
     { name: 'Claude Code 교육', url: 'https://claude-code.dreamitbiz.com' }

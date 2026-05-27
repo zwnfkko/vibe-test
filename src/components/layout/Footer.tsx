@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import site from '../../config/site';
-import type { ReactElement, ChangeEvent } from 'react';
+import type { ReactElement } from 'react';
 
 const Footer = (): ReactElement => {
   const { t } = useLanguage();
@@ -29,29 +29,10 @@ const Footer = (): ReactElement => {
           <div>
             <h5>패밀리 사이트</h5>
             <ul>
-              <li><a href={site.parentSite.url} target="_blank" rel="noopener noreferrer">{site.parentSite.name}</a></li>
               {site.familySites.map((s, i) => (
                 <li key={i}><a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a></li>
               ))}
             </ul>
-          </div>
-          <div>
-            <h5>Family Site</h5>
-            <div className="footer-family">
-              <select
-                defaultValue=""
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-                  if (e.target.value) window.open(e.target.value, '_blank');
-                  e.target.value = '';
-                }}
-              >
-                <option value="" disabled>바로가기</option>
-                <option value={site.parentSite.url}>{site.parentSite.name}</option>
-                {site.familySites.map((s, i) => (
-                  <option key={i} value={s.url}>{s.name}</option>
-                ))}
-              </select>
-            </div>
           </div>
         </div>
         <div className="footer-bottom">

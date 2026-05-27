@@ -91,7 +91,6 @@ const Navbar = (): ReactElement => {
         <div className="container">
           <div className="topbar-left">
             <span className="topbar-tag">바이브코딩 커뮤니티</span>
-            <span className="topbar-tag topbar-tag-extra">DreamIT Biz</span>
           </div>
           <div className="topbar-right">
             <button onClick={toggleLanguage}>{language === 'ko' ? 'KR / EN' : 'EN / KR'}</button>
