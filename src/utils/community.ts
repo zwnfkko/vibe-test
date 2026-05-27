@@ -140,13 +140,16 @@ export const toggleLike = async (postId: number, userId: string): Promise<number
     .eq('user_id', userId)
     .maybeSingle();
 
+  const { data: currentPost } = await client.from(TABLES.posts).select('likes').eq('id', postId).single();
+  const currentLikes = (currentPost as Pick<Post, 'likes'> | null)?.likes || 0;
+
   if (existing) {
     await client.from(TABLES.likes).delete().eq('post_id', postId).eq('user_id', userId);
-    await client.from(TABLES.posts).update({ likes: client.rpc('decrement', {}) }).eq('id', postId);
+    await client.from(TABLES.posts).update({ likes: Math.max(0, currentLikes - 1) }).eq('id', postId);
+    return Math.max(0, currentLikes - 1);
   } else {
     await client.from(TABLES.likes).insert({ post_id: postId, user_id: userId });
-    await client.from(TABLES.posts).update({ likes: client.rpc('increment', {}) }).eq('id', postId);
+    await client.from(TABLES.posts).update({ likes: currentLikes + 1 }).eq('id', postId);
+    return currentLikes + 1;
   }
-  const { data } = await client.from(TABLES.posts).select('likes').eq('id', postId).single();
-  return (data as Post | null)?.likes || 0;
 };
