@@ -89,27 +89,7 @@ const Home = (): ReactElement => {
               <Link
                 key={cat.key}
                 to={`/board?category=${cat.key}`}
-                style={{
-                  display: 'block',
-                  background: 'var(--bg-white)',
-                  border: '1px solid var(--border-light)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: '32px 24px',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  transition: 'all 0.3s',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-6px)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-xl)';
-                  (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary-blue)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = '';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '';
-                  (e.currentTarget as HTMLElement).style.borderColor = '';
-                }}
+                className="home-category-card"
               >
                 <div style={{ fontSize: '40px', marginBottom: '16px' }}>{cat.icon}</div>
                 <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>{cat.label}</h3>
@@ -147,23 +127,7 @@ const Home = (): ReactElement => {
                 <Link
                   key={post.id}
                   to={`/board/${post.id}`}
-                  style={{
-                    display: 'block',
-                    background: 'var(--bg-white)',
-                    border: '1px solid var(--border-light)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '20px 24px',
-                    textDecoration: 'none',
-                    transition: 'all 0.2s',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = 'var(--primary-blue)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-md)';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = '';
-                    (e.currentTarget as HTMLElement).style.boxShadow = '';
-                  }}
+                  className="home-recent-post-card"
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                     <span style={{
