@@ -341,6 +341,40 @@
     100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
 }
 
+/* ── Home 카테고리 카드 ── */
+.home-category-card {
+  display: block;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+.home-category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-blue);
+}
+
+/* ── Home 최근 게시글 카드 ── */
+.home-recent-post-card {
+  display: block;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.home-recent-post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-blue);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .hero-title { font-size: 44px; }
