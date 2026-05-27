@@ -2,7 +2,7 @@ import { useState, useEffect, type ReactElement, type FormEvent } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
-import { signInWithGoogle, signInWithKakao, signInWithEmail } from '../utils/auth';
+import { signInWithEmail } from '../utils/auth';
 
 type LoginStep = 'method' | 'email';
 
@@ -48,14 +48,8 @@ const Login = (): ReactElement | null => {
     }
   };
 
-  const handleSocialLogin = async (provider: 'google' | 'kakao') => {
-    setError('');
-    try {
-      if (provider === 'google') await signInWithGoogle();
-      else if (provider === 'kakao') await signInWithKakao();
-    } catch (err) {
-      setError((err as Error).message || t('auth.loginError'));
-    }
+  const handleSocialLogin = (_provider: 'google' | 'kakao') => {
+    setError('준비중입니다.');
   };
 
   return (
@@ -103,7 +97,7 @@ const Login = (): ReactElement | null => {
                   </svg>
                   <span>Kakao</span>
                 </button>
-                <button className="auth-method-btn email" onClick={() => setStep('email')}>
+                <button className="auth-method-btn email" onClick={() => { setStep('email'); setError(''); }}>
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="2" y="4" width="20" height="16" rx="2"/>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
