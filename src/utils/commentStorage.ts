@@ -4,7 +4,7 @@
  */
 
 import type { Comment, CommentInput } from '../types';
-import getSupabase from './supabase';
+import getSupabase, { TABLES } from './supabase';
 
 function toCamelKey(key: string): string {
   return key.replace(/_([a-z])/g, (_, c: string) => c.toUpperCase());
@@ -26,7 +26,7 @@ export async function getComments(postId: number | string, postType: string): Pr
   const client = getSupabase();
   if (!client) return [];
   const { data, error } = await client
-    .from('comments')
+    .from(TABLES.comments)
     .select('*')
     .eq('post_id', Number(postId))
     .eq('post_type', postType)
@@ -45,7 +45,7 @@ export async function createComment({ postId, postType, authorId, authorName, co
   const client = getSupabase();
   if (!client) return null;
   const { data, error } = await client
-    .from('comments')
+    .from(TABLES.comments)
     .insert({
       post_id: Number(postId),
       post_type: postType,
@@ -70,7 +70,7 @@ export async function deleteComment(id: number): Promise<boolean> {
   const client = getSupabase();
   if (!client) return false;
   const { error } = await client
-    .from('comments')
+    .from(TABLES.comments)
     .delete()
     .eq('id', Number(id));
   if (error) {
